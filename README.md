@@ -11,6 +11,14 @@ npm run dev
 
 Open http://127.0.0.1:3000.
 
+## Run the production stack
+
+Copy `.env.example` to `.env`, replace the administrator password and session secret,
+then run `docker compose up --build`. The application image includes Chromium,
+LibreOffice, CJK fonts, and the pinned Python conversion workers. `/api/health` reports
+database connectivity and current conversion queue pressure and returns HTTP 503 when
+the configured database is unavailable.
+
 ## Included in this first build
 
 - Home page, all-tools directory, 90+ SEO-friendly tool routes, FAQ, privacy, terms and contact pages.
@@ -29,13 +37,22 @@ forward the same payload to a trusted HTTPS endpoint.
 
 ## Administrator login
 
-The first administrator account is `admin` with the initial password `111111`. Sign in
-at `/admin` with the displayed image verification code, then use **Change password** in
-the top bar immediately. Passwords are stored using a per-password salt and Node's
+The first administrator account is `admin`. In production, set
+`ADMIN_INITIAL_PASSWORD` to at least 12 characters before the first login; production
+initialization is refused when it is absent. Development defaults to `111111` for local
+convenience only. Sign in at `/admin` with the displayed image verification code, then
+use **Change password** in the top bar. Passwords are stored using a per-password salt and Node's
 `scrypt` hash; the browser only receives an HttpOnly signed session cookie. Set a long,
-random `ADMIN_SESSION_SECRET` in production. The local JSON user store is suitable for a
-single-instance deployment only; move it to a managed database before running multiple
-application instances.
+random `ADMIN_SESSION_SECRET` in production. When `DATABASE_URL` is configured,
+administrator accounts, contact messages, and tool publishing state are stored in
+PostgreSQL. JSON storage is used only for database-free local development; configured
+database failures are surfaced instead of silently creating divergent local state.
+
+Set `MAX_UPLOAD_BYTES` to cap server-side document uploads. It defaults to 50 MiB.
+Public conversion endpoints and administrator login include an in-process rate-limit
+baseline; use a shared gateway or Redis-backed limiter when running multiple instances.
+`MAX_PDF_PAGES`, `WORKER_CONCURRENCY`, and `WORKER_QUEUE_SIZE` bound expensive PDF
+work and expose current queue depth through `/api/health`.
 
 ## PDF to editable Word
 

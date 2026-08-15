@@ -55,6 +55,10 @@ button { cursor:pointer; }
 .tool-card p { color:var(--muted); font-size:13px; line-height:1.5; margin:0; }
 .favorite { color:#b5bfd0; border:0; background:transparent; padding:3px; }
 .favorite:hover { color:var(--orange); }
+.capability-badge { display:inline-flex; align-items:center; min-height:22px; padding:3px 7px; border-radius:999px; background:#e8f7ee; color:#18794e; font-size:10px; font-weight:700; letter-spacing:0; text-transform:none; white-space:nowrap; }
+.capability-beta { background:#fff2e3; color:#b95b00; }
+.capability-worker-required { background:#f0ecff; color:#6245b6; }
+.capability-coming-soon { background:#edf1f5; color:#667085; }
 .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin:65px 0 18px; }
 .section-head h2 { font-family:'Space Grotesk',sans-serif; font-size:26px; margin:0; letter-spacing:0; }
 .section-head p { margin:0; color:var(--muted); font-size:14px; }

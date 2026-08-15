@@ -3,6 +3,7 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { promisify } from "node:util";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { getPool } from "./db";
 
 const scryptAsync = promisify(scrypt);
 const cookieName = "paperpilot_admin_session";
@@ -12,6 +13,20 @@ let writeQueue = Promise.resolve();
 
 type AdminUser = { username: string; passwordHash: string; salt: string; sessionVersion: number; updatedAt: string };
 type SessionPayload = { username: string; version: number; expiresAt: number };
+
+function usesDatabase() { return Boolean(process.env.DATABASE_URL); }
+
+async function ensureAdminUsersTable() {
+  await getPool().query(`
+    create table if not exists admin_users (
+      username text primary key,
+      password_hash text not null,
+      salt text not null,
+      session_version integer not null,
+      updated_at timestamptz not null
+    )
+  `);
+}
 
 function sessionSecret() {
   if (process.env.ADMIN_SESSION_SECRET) return process.env.ADMIN_SESSION_SECRET;
@@ -23,12 +38,40 @@ async function hashPassword(password: string, salt: string) {
   return (await scryptAsync(password, salt, 64) as Buffer).toString("base64");
 }
 
+function initialAdminPassword() {
+  if (process.env.NODE_ENV !== "production") return process.env.ADMIN_INITIAL_PASSWORD || "111111";
+  const password = process.env.ADMIN_INITIAL_PASSWORD;
+  if (!password || password.length < 12 || password === "111111") {
+    throw new Error("ADMIN_INITIAL_PASSWORD must be set to at least 12 characters before the first production login.");
+  }
+  return password;
+}
+
 async function readUser(): Promise<AdminUser | null> {
+  if (usesDatabase()) {
+    await ensureAdminUsersTable();
+    const { rows } = await getPool().query<{ username: string; password_hash: string; salt: string; session_version: number; updated_at: Date }>(
+      "select username, password_hash, salt, session_version, updated_at from admin_users order by updated_at asc limit 1",
+    );
+    const row = rows[0];
+    return row ? { username: row.username, passwordHash: row.password_hash, salt: row.salt, sessionVersion: row.session_version, updatedAt: row.updated_at.toISOString() } : null;
+  }
   try { return JSON.parse(await readFile(userPath, "utf8")) as AdminUser; }
   catch (reason) { if ((reason as NodeJS.ErrnoException).code === "ENOENT") return null; throw reason; }
 }
 
 async function saveUser(user: AdminUser) {
+  if (usesDatabase()) {
+    await ensureAdminUsersTable();
+    await getPool().query({
+      text: `insert into admin_users (username, password_hash, salt, session_version, updated_at)
+        values ($1, $2, $3, $4, $5)
+        on conflict (username) do update set password_hash = excluded.password_hash, salt = excluded.salt,
+          session_version = excluded.session_version, updated_at = excluded.updated_at`,
+      values: [user.username, user.passwordHash, user.salt, user.sessionVersion, user.updatedAt],
+    });
+    return;
+  }
   await mkdir(path.dirname(userPath), { recursive: true });
   const temporaryPath = `${userPath}.tmp`;
   await writeFile(temporaryPath, `${JSON.stringify(user, null, 2)}\n`, "utf8");
@@ -41,7 +84,7 @@ async function mutateUser<T>(operation: (user: AdminUser) => T | Promise<T>) {
     let user = await readUser();
     if (!user) {
       const salt = randomBytes(16).toString("base64");
-      user = { username: "admin", salt, passwordHash: await hashPassword("111111", salt), sessionVersion: 1, updatedAt: new Date().toISOString() };
+      user = { username: "admin", salt, passwordHash: await hashPassword(initialAdminPassword(), salt), sessionVersion: 1, updatedAt: new Date().toISOString() };
     }
     value = await operation(user);
     await saveUser(user);

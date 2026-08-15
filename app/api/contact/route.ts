@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createContactMessage } from "../../../lib/contact-messages";
+import { enforceRateLimit, rejectOversizedRequest } from "../../../lib/request-security";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -8,6 +9,10 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 function text(value: unknown, maxLength: number) { return typeof value === "string" ? value.trim().slice(0, maxLength) : ""; }
 
 export async function POST(request: Request) {
+  const limited = enforceRateLimit(request, "contact", 5, 10 * 60_000);
+  if (limited) return limited;
+  const oversized = rejectOversizedRequest(request, 16 * 1024);
+  if (oversized) return oversized;
   let payload: Record<string, unknown>;
   try { payload = await request.json(); } catch { return NextResponse.json({ error: "提交内容格式不正确。" }, { status: 400 }); }
   const name = text(payload.name, 120);

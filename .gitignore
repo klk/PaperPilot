@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.env*
+!.env.example
+data/admin-user.json
+data/contact-messages.json
+*.tsbuildinfo
+.venv*/

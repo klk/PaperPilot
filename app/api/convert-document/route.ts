@@ -3,8 +3,11 @@ import { promisify } from "node:util";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
+import { enforceRateLimit, rejectOversizedRequest, validatePdfBytes, validateUploadedFile } from "../../../lib/request-security";
+import { acquireWorkerSlot } from "../../../lib/worker-queue";
 
 const execFileAsync = promisify(execFile);
+const maxUploadBytes = Number(process.env.MAX_UPLOAD_BYTES) || 50 * 1024 * 1024;
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -125,18 +128,29 @@ async function convertPdfToRtf(input: string, output: string) {
 }
 
 export async function POST(request: Request) {
+  const limited = enforceRateLimit(request, "convert-document", 10, 60_000);
+  if (limited) return limited;
+  const oversized = rejectOversizedRequest(request, maxUploadBytes);
+  if (oversized) return oversized;
   const form = await request.formData();
   const file = form.get("file");
   const format = String(form.get("format") || "docx").toLowerCase();
   const mode = String(form.get("mode") || "flow");
   const extension = extensionFor(format);
-  if (!(file instanceof File) || !extension) return Response.json({ error: "缺少文件或不支持的转换格式。" }, { status: 400 });
+  const fileError = validateUploadedFile(file, maxUploadBytes);
+  if (fileError || !extension) return Response.json({ error: fileError || "不支持的转换格式。" }, { status: fileError?.startsWith("文件过大") ? 413 : 400 });
+  if (!(file instanceof File)) return Response.json({ error: "缺少上传文件。" }, { status: 400 });
 
   const workdir = await mkdtemp(path.join(tmpdir(), "paperpilot-convert-"));
   const input = path.join(workdir, "input.pdf");
   const output = path.join(workdir, `input.${extension}`);
+  let releaseWorker: (() => void) | undefined;
   try {
-    await writeFile(input, Buffer.from(await file.arrayBuffer()));
+    releaseWorker = await acquireWorkerSlot();
+    const inputBytes = Buffer.from(await file.arrayBuffer());
+    const pdfError = await validatePdfBytes(inputBytes);
+    if (pdfError) return Response.json({ error: pdfError }, { status: 400 });
+    await writeFile(input, inputBytes);
     if (format === "docx") {
       await convertPdfToDocx(input, output);
       const bytes = await readFile(output);
@@ -176,8 +190,11 @@ export async function POST(request: Request) {
     const bytes = await readFile(output);
     return new Response(bytes, { headers: { "Content-Type": "application/octet-stream", "Content-Disposition": `attachment; filename="paperpilot.${extension}"` } });
   } catch (reason) {
-    return Response.json({ error: reason instanceof Error ? reason.message : "文档转换失败。" }, { status: 500 });
+    console.error("Document conversion failed", reason);
+    const busy = reason instanceof Error && reason.message.startsWith("WORKER_QUEUE_");
+    return Response.json({ error: busy ? "转换服务繁忙，请稍后重试。" : "文档转换失败或转换服务暂不可用。" }, { status: busy ? 503 : 500 });
   } finally {
+    releaseWorker?.();
     await rm(workdir, { recursive: true, force: true });
   }
 }

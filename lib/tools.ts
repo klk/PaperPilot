@@ -1,4 +1,5 @@
 export type ToolCategory = "popular" | "manage" | "to-pdf" | "from-pdf" | "image" | "desktop";
+export type ToolCapability = "ready" | "beta" | "worker-required" | "coming-soon";
 export type ToolOperation =
   | "merge" | "split" | "compress" | "generic" | "images-to-pdf" | "pdf-to-images"
   | "rotate" | "remove-pages" | "extract-pages" | "rearrange" | "watermark"
@@ -87,10 +88,23 @@ export const uniqueTools = tools.filter((item, index, all) => all.findIndex((can
 
 export const toolMap = new Map(uniqueTools.map((item) => [item.slug, item]));
 
-export type ToolWithState = Tool & { published: boolean };
+export type ToolWithState = Tool & { published: boolean; capability: ToolCapability };
+
+export function capabilityForTool(item: Tool): ToolCapability {
+  if (["generic", "office", "ocr"].includes(item.operation)) return item.operation === "generic" ? "coming-soon" : "worker-required";
+  if (["password", "webpage", "convert-to-pdf", "convert-from-pdf", "image-convert"].includes(item.operation)) return "beta";
+  return "ready";
+}
+
+export function capabilityLabel(capability: ToolCapability, locale: string) {
+  const labels = locale === "zh"
+    ? { ready: "可用", beta: "Beta", "worker-required": "需要服务组件", "coming-soon": "即将推出" }
+    : { ready: "Ready", beta: "Beta", "worker-required": "Worker required", "coming-soon": "Coming soon" };
+  return labels[capability];
+}
 
 export function mergeToolPublishState(publishState: Record<string, { published: boolean }>) {
-  return uniqueTools.map((tool) => ({ ...tool, published: publishState[tool.slug]?.published ?? true }));
+  return uniqueTools.map((tool) => ({ ...tool, published: publishState[tool.slug]?.published ?? true, capability: capabilityForTool(tool) }));
 }
 
 export const categories: Array<{ id: ToolCategory; label: string }> = [

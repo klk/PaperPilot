@@ -1,4 +1,27 @@
 services:
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://paperpilot:${POSTGRES_PASSWORD:-paperpilot-local}@postgres:5432/paperpilotdb
+      ADMIN_SESSION_SECRET: ${ADMIN_SESSION_SECRET:?Set ADMIN_SESSION_SECRET}
+      ADMIN_INITIAL_PASSWORD: ${ADMIN_INITIAL_PASSWORD:?Set ADMIN_INITIAL_PASSWORD}
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+      MAX_UPLOAD_BYTES: ${MAX_UPLOAD_BYTES:-52428800}
+      MAX_PDF_PAGES: ${MAX_PDF_PAGES:-500}
+      WORKER_CONCURRENCY: ${WORKER_CONCURRENCY:-2}
+      WORKER_QUEUE_SIZE: ${WORKER_QUEUE_SIZE:-20}
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>{if(!r.ok)process.exit(1)})"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+
   postgres:
     image: postgres:16-alpine
     container_name: paperpilot-postgres
@@ -6,11 +29,16 @@ services:
     environment:
       POSTGRES_DB: paperpilotdb
       POSTGRES_USER: paperpilot
-      POSTGRES_PASSWORD: "111111"
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-paperpilot-local}
     ports:
       - "5432:5432"
     volumes:
       - paperpilot_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U paperpilot -d paperpilotdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   paperpilot_postgres_data:

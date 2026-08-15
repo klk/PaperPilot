@@ -3,11 +3,14 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { tmpdir } from "node:os";
 import { promisify } from "node:util";
+import { enforceRateLimit, rejectOversizedRequest, validatePdfBytes, validateUploadedFile } from "../../../lib/request-security";
+import { acquireWorkerSlot } from "../../../lib/worker-queue";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const execFileAsync = promisify(execFile);
+const maxUploadBytes = Number(process.env.MAX_UPLOAD_BYTES) || 50 * 1024 * 1024;
 const pythonCandidates = [
   process.env.PDF2SECURE_PYTHON,
   process.env.PDF2DOCX_PYTHON,
@@ -18,17 +21,28 @@ const pythonCandidates = [
 const script = process.env.PDF2SECURE_SCRIPT || path.join(process.cwd(), "scripts", "pdf_to_secure_pdf.py");
 
 export async function POST(request: Request) {
+  const limited = enforceRateLimit(request, "protect-pdf", 10, 60_000);
+  if (limited) return limited;
+  const oversized = rejectOversizedRequest(request, maxUploadBytes);
+  if (oversized) return oversized;
   const form = await request.formData();
   const file = form.get("file");
   const password = String(form.get("password") || "");
   const permissions = String(form.get("permissions") || "{}");
-  if (!(file instanceof File) || !password) return Response.json({ error: "缺少文件或密码。" }, { status: 400 });
+  const fileError = validateUploadedFile(file, maxUploadBytes);
+  if (fileError || !password) return Response.json({ error: fileError || "缺少密码。" }, { status: fileError?.startsWith("文件过大") ? 413 : 400 });
+  if (!(file instanceof File)) return Response.json({ error: "缺少上传文件。" }, { status: 400 });
 
   const workdir = await mkdtemp(path.join(tmpdir(), "paperpilot-protect-"));
   const input = path.join(workdir, "input.pdf");
   const output = path.join(workdir, "output.pdf");
+  let releaseWorker: (() => void) | undefined;
   try {
-    await writeFile(input, Buffer.from(await file.arrayBuffer()));
+    releaseWorker = await acquireWorkerSlot();
+    const inputBytes = Buffer.from(await file.arrayBuffer());
+    const pdfError = await validatePdfBytes(inputBytes);
+    if (pdfError) return Response.json({ error: pdfError }, { status: 400 });
+    await writeFile(input, inputBytes);
     let lastError = "";
     for (const executable of pythonCandidates) {
       try {
@@ -43,8 +57,11 @@ export async function POST(request: Request) {
     const bytes = await readFile(output);
     return new Response(bytes, { headers: { "Content-Type": "application/pdf", "Content-Disposition": 'attachment; filename="paperpilot-secure.pdf"' } });
   } catch (reason) {
-    return Response.json({ error: reason instanceof Error ? reason.message : "PDF 保护失败。" }, { status: 500 });
+    console.error("PDF protection failed", reason);
+    const busy = reason instanceof Error && reason.message.startsWith("WORKER_QUEUE_");
+    return Response.json({ error: busy ? "转换服务繁忙，请稍后重试。" : "PDF 保护失败或转换服务暂不可用。" }, { status: busy ? 503 : 500 });
   } finally {
+    releaseWorker?.();
     await rm(workdir, { recursive: true, force: true });
   }
 }

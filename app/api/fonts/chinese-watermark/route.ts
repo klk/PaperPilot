@@ -14,7 +14,7 @@ const fontCandidates = [
 export async function GET() {
   for (const candidate of fontCandidates) {
     try {
-      const bytes = await readFile(candidate);
+      const bytes = await readFile(/* turbopackIgnore: true */ candidate);
       return new Response(bytes, {
         headers: {
           "Content-Type": candidate.toLowerCase().endsWith(".ttf") ? "font/ttf" : "font/ttc",

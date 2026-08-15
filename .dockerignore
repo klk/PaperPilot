@@ -1,0 +1,9 @@
+.git
+.next
+node_modules
+output
+.env*
+data/admin-user.json
+data/contact-messages.json
+.venv*
+*.tsbuildinfo
