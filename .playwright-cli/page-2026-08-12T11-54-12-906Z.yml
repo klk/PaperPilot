@@ -1,0 +1,165 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "PaperPilot 首页" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - text: PaperPilot
+      - navigation "主导航" [ref=e6]:
+        - link "所有工具" [ref=e7] [cursor=pointer]:
+          - /url: /all-tools
+        - link "安全与隐私" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "管理后台" [ref=e9] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=e10]:
+        - button "下载桌面应用" [ref=e11] [cursor=pointer]
+        - button "切换主题" [ref=e16] [cursor=pointer]
+        - button "打开菜单" [ref=e19] [cursor=pointer]
+    - main [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]: A calmer way to handle documents
+        - heading "PDF 工作， 轻一点。" [level=1] [ref=e26]: PDF 工作，轻一点。
+        - paragraph [ref=e27]: PaperPilot 把常用的 PDF 操作放进一个清晰、快速、注重隐私的工作台。无需安装，打开就能用。
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - heading "常用工具" [level=2] [ref=e32]
+            - paragraph [ref=e33]: 从一个简单动作开始，结果会直接下载到你的设备。
+          - link "查看全部工具" [ref=e34] [cursor=pointer]:
+            - /url: /all-tools
+        - generic [ref=e37]:
+          - link [ref=e38] [cursor=pointer]:
+            - /url: /merge-pdf
+            - generic [ref=e39]: ☆
+            - heading "合并 PDF" [level=3] [ref=e44]
+            - paragraph [ref=e45]: 把多个 PDF 合并成一个有序文档。
+          - link [ref=e46] [cursor=pointer]:
+            - /url: /split-pdf
+            - generic [ref=e47]: ☆
+            - heading "拆分 PDF" [level=3] [ref=e52]
+            - paragraph [ref=e53]: 按页码或范围拆分 PDF 文件。
+          - link [ref=e54] [cursor=pointer]:
+            - /url: /compress-pdf
+            - generic [ref=e55]: ☆
+            - heading "压缩 PDF" [level=3] [ref=e60]
+            - paragraph [ref=e61]: 减少 PDF 文件体积，便于分享和上传。
+          - link [ref=e62] [cursor=pointer]:
+            - /url: /edit-pdf
+            - generic [ref=e63]: ☆
+            - heading "编辑 PDF" [level=3] [ref=e68]
+            - paragraph [ref=e69]: 在 PDF 页面上自由涂鸦并下载编辑后的文件。
+          - link [ref=e70] [cursor=pointer]:
+            - /url: /sign-pdf
+            - generic [ref=e71]: ☆
+            - heading "签署 PDF" [level=3] [ref=e76]
+            - paragraph [ref=e77]: 在 PDF 中添加电子签名。
+          - link [ref=e78] [cursor=pointer]:
+            - /url: /pdf-converter
+            - generic [ref=e79]: ☆
+            - heading "PDF 转换器" [level=3] [ref=e84]
+            - paragraph [ref=e85]: 在 PDF 与常见文件格式之间转换。
+          - link [ref=e86] [cursor=pointer]:
+            - /url: /images-to-pdf
+            - generic [ref=e87]: ☆
+            - heading "图片转 PDF" [level=3] [ref=e92]
+            - paragraph [ref=e93]: 把 JPG、PNG 等图片整理为 PDF。
+          - link [ref=e94] [cursor=pointer]:
+            - /url: /pdf-to-images
+            - generic [ref=e95]: ☆
+            - heading "PDF 转图片" [level=3] [ref=e100]
+            - paragraph [ref=e101]: 将 PDF 页面导出为图片。
+      - generic [ref=e102]:
+        - generic [ref=e104]:
+          - heading "完整工具箱" [level=2] [ref=e105]
+          - paragraph [ref=e106]: 按任务查找工具，不用记住复杂的菜单结构。
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - heading "整理与编辑" [level=3] [ref=e109]
+            - generic [ref=e110]:
+              - link "保护 PDF" [ref=e111] [cursor=pointer]:
+                - /url: /lock-pdf
+              - link "解除 PDF 保护" [ref=e112] [cursor=pointer]:
+                - /url: /unlock-pdf
+              - link "旋转 PDF 页面" [ref=e113] [cursor=pointer]:
+                - /url: /rotate-pdf-pages
+              - link "删除 PDF 页面" [ref=e114] [cursor=pointer]:
+                - /url: /remove-pdf-pages
+              - link "提取 PDF 页面" [ref=e115] [cursor=pointer]:
+                - /url: /extract-pdf-pages
+              - link "重排 PDF 页面" [ref=e116] [cursor=pointer]:
+                - /url: /rearrange-pdf-pages
+              - link "网页转 PDF" [ref=e117] [cursor=pointer]:
+                - /url: /webpage-to-pdf
+              - link "OCR 文本识别" [ref=e118] [cursor=pointer]:
+                - /url: /ocr-pdf
+          - generic [ref=e119]:
+            - heading "转换为 PDF" [level=3] [ref=e120]
+            - generic [ref=e121]:
+              - link "转换为 PDF" [ref=e122] [cursor=pointer]:
+                - /url: /convert-to-pdf
+              - link "Word 转 PDF" [ref=e123] [cursor=pointer]:
+                - /url: /word-to-pdf
+              - link "PowerPoint 转 PDF" [ref=e124] [cursor=pointer]:
+                - /url: /powerpoint-to-pdf
+              - link "Excel 转 PDF" [ref=e125] [cursor=pointer]:
+                - /url: /excel-to-pdf
+              - link "JPG 转 PDF" [ref=e126] [cursor=pointer]:
+                - /url: /jpg-to-pdf
+              - link "PNG 转 PDF" [ref=e127] [cursor=pointer]:
+                - /url: /png-to-pdf
+              - link "WEBP 转 PDF" [ref=e128] [cursor=pointer]:
+                - /url: /webp-to-pdf
+              - link "HEIC 转 PDF" [ref=e129] [cursor=pointer]:
+                - /url: /heic-to-pdf
+          - generic [ref=e130]:
+            - heading "从 PDF 转换" [level=3] [ref=e131]
+            - generic [ref=e132]:
+              - link "从 PDF 转换" [ref=e133] [cursor=pointer]:
+                - /url: /convert-from-pdf
+              - link "PDF 转 Word" [ref=e134] [cursor=pointer]:
+                - /url: /pdf-to-word
+              - link "PDF 转 PowerPoint" [ref=e135] [cursor=pointer]:
+                - /url: /pdf-to-powerpoint
+              - link "PDF 转 Excel" [ref=e136] [cursor=pointer]:
+                - /url: /pdf-to-excel
+              - link "PDF 转 JPG" [ref=e137] [cursor=pointer]:
+                - /url: /pdf-to-jpg
+              - link "PDF 转 PNG" [ref=e138] [cursor=pointer]:
+                - /url: /pdf-to-png
+              - link "PDF 转 SVG" [ref=e139] [cursor=pointer]:
+                - /url: /pdf-to-svg
+              - link "PDF 转 DOCX" [ref=e140] [cursor=pointer]:
+                - /url: /pdf-to-docx
+          - generic [ref=e141]:
+            - heading "图片工具" [level=3] [ref=e142]
+            - generic [ref=e143]:
+              - link "HEIC 转 JPG" [ref=e144] [cursor=pointer]:
+                - /url: /heic-to-jpg
+              - link "HEIC 转 PNG" [ref=e145] [cursor=pointer]:
+                - /url: /heic-to-png
+              - link "WEBP 转 JPG" [ref=e146] [cursor=pointer]:
+                - /url: /webp-to-jpg
+              - link "WEBP 转 PNG" [ref=e147] [cursor=pointer]:
+                - /url: /webp-to-png
+          - generic [ref=e148]:
+            - heading "桌面应用" [level=3] [ref=e149]
+            - generic [ref=e150]:
+              - link "PDF 打印机" [ref=e151] [cursor=pointer]:
+                - /url: /pdf-printer
+              - link "PDF 阅读器" [ref=e152] [cursor=pointer]:
+                - /url: /pdf-reader
+    - contentinfo [ref=e153]:
+      - link "关于 PaperPilot" [ref=e154] [cursor=pointer]:
+        - /url: /about
+      - link "常见问题" [ref=e155] [cursor=pointer]:
+        - /url: /faq
+      - link "联系" [ref=e156] [cursor=pointer]:
+        - /url: /contact
+      - link "隐私政策" [ref=e157] [cursor=pointer]:
+        - /url: /privacy
+      - link "使用条款" [ref=e158] [cursor=pointer]:
+        - /url: /terms
+      - generic [ref=e159]: 文件默认在浏览器本地处理
+      - generic [ref=e163]: © 2026 PaperPilot
+  - button "Open Next.js Dev Tools" [ref=e169] [cursor=pointer]
+  - alert [ref=e173]

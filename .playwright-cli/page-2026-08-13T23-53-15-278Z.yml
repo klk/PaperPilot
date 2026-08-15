@@ -1,0 +1,90 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "PaperPilot 首页" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - text: PaperPilot
+      - navigation "主导航" [ref=e6]:
+        - link "所有工具" [ref=e7] [cursor=pointer]:
+          - /url: /all-tools
+        - link "安全与隐私" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "管理后台" [ref=e9] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=e10]:
+        - button "切换至深色模式" [ref=e11] [cursor=pointer]
+        - button "打开菜单" [ref=e14] [cursor=pointer]
+    - main [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: Rearrange PDF Pages
+        - heading "重排 PDF 页面" [level=1] [ref=e25]
+        - paragraph [ref=e26]: 按新的顺序整理 PDF 页面。
+        - generic [ref=e27]:
+          - generic [ref=e28]: 免费开始
+          - generic [ref=e31]: 在线使用
+          - generic [ref=e34]: 无需安装
+          - generic [ref=e37]: 隐私优先
+      - region "Rearrange PDF Pages workspace" [ref=e42]:
+        - generic [ref=e43]: 文件保护已激活，默认在此浏览器中处理
+        - generic [ref=e47]:
+          - button "选择文件" [ref=e51] [cursor=pointer]
+          - generic [ref=e55]: 或将文件拖放到这里 · 支持单个或多个文件
+        - generic [ref=e57]:
+          - text: 页面范围（例如 1-3,5）
+          - textbox "页面范围（例如 1-3,5）" [ref=e58]:
+            - /placeholder: 留空表示全部页面
+        - generic [ref=e60]:
+          - button "开始处理" [disabled] [ref=e61]
+          - generic [ref=e65]: 处理完成后自动下载结果
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - heading "简单直接" [level=3] [ref=e70]
+          - paragraph [ref=e71]: 上传文件，选择操作，结果自动下载。每个工具只保留真正需要的设置。
+        - generic [ref=e72]:
+          - heading "文件保护" [level=3] [ref=e77]
+          - paragraph [ref=e78]: 首批核心工具在浏览器中处理文件，避免不必要的上传和长期存储。
+        - generic [ref=e79]:
+          - heading "随处可用" [level=3] [ref=e82]
+          - paragraph [ref=e83]: 在桌面、平板和手机浏览器中都能使用同一套工具。
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - heading "更多 PDF 工具" [level=2] [ref=e87]
+            - paragraph [ref=e88]: 换一个工具继续处理当前任务。
+          - link "浏览全部" [ref=e89] [cursor=pointer]:
+            - /url: /all-tools
+        - generic [ref=e92]:
+          - link [ref=e93] [cursor=pointer]:
+            - /url: /merge-pdf
+            - generic [ref=e94]: ☆
+            - heading "合并 PDF" [level=3] [ref=e99]
+            - paragraph [ref=e100]: 把多个 PDF 合并成一个有序文档。
+          - link [ref=e101] [cursor=pointer]:
+            - /url: /split-pdf
+            - generic [ref=e102]: ☆
+            - heading "拆分 PDF" [level=3] [ref=e107]
+            - paragraph [ref=e108]: 按页码或范围拆分 PDF 文件。
+          - link [ref=e109] [cursor=pointer]:
+            - /url: /compress-pdf
+            - generic [ref=e110]: ☆
+            - heading "压缩 PDF" [level=3] [ref=e115]
+            - paragraph [ref=e116]: 减少 PDF 文件体积，便于分享和上传。
+          - link [ref=e117] [cursor=pointer]:
+            - /url: /edit-pdf
+            - generic [ref=e118]: ☆
+            - heading "编辑 PDF" [level=3] [ref=e123]
+            - paragraph [ref=e124]: 在 PDF 页面上自由涂鸦并下载编辑后的文件。
+    - contentinfo [ref=e125]:
+      - link "关于 PaperPilot" [ref=e126] [cursor=pointer]:
+        - /url: /about
+      - link "常见问题" [ref=e127] [cursor=pointer]:
+        - /url: /faq
+      - link "联系" [ref=e128] [cursor=pointer]:
+        - /url: /contact
+      - link "隐私政策" [ref=e129] [cursor=pointer]:
+        - /url: /privacy
+      - link "使用条款" [ref=e130] [cursor=pointer]:
+        - /url: /terms
+      - generic [ref=e131]: 文件默认在浏览器本地处理
+      - generic [ref=e135]: © 2026 PaperPilot
+  - alert [ref=e136]

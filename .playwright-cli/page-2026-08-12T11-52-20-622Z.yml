@@ -1,0 +1,98 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "PaperPilot 首页" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - text: PaperPilot
+      - navigation "主导航" [ref=e6]:
+        - link "所有工具" [ref=e7] [cursor=pointer]:
+          - /url: /all-tools
+        - link "安全与隐私" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "管理后台" [ref=e9] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=e10]:
+        - button "下载桌面应用" [ref=e11] [cursor=pointer]
+        - button "切换主题" [ref=e16] [cursor=pointer]
+        - button "打开菜单" [ref=e19] [cursor=pointer]
+    - main [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]: Compress PDF
+        - heading "压缩 PDF" [level=1] [ref=e27]
+        - paragraph [ref=e28]: 减少 PDF 文件体积，便于分享和上传。
+        - generic [ref=e29]:
+          - generic [ref=e30]: 免费开始
+          - generic [ref=e33]: 在线使用
+          - generic [ref=e36]: 无需安装
+          - generic [ref=e39]: 隐私优先
+      - region "Compress PDF workspace" [ref=e44]:
+        - generic [ref=e45]: 文件保护已激活，默认在此浏览器中处理
+        - generic [ref=e49]:
+          - button "选择文件" [ref=e53] [cursor=pointer]
+          - generic [ref=e57]: 或将文件拖放到这里 · 支持单个或多个文件
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - text: 渲染 DPI
+            - spinbutton "渲染 DPI" [ref=e60]: "144"
+          - generic [ref=e61]:
+            - text: JPEG 图片质量
+            - spinbutton "JPEG 图片质量" [ref=e62]: "75"
+          - generic [ref=e63]:
+            - strong [ref=e64]: 压缩方式
+            - generic [ref=e65]: 将页面重新渲染为 JPEG，适合扫描件和图片型 PDF。
+        - generic [ref=e67]:
+          - button "开始处理" [disabled] [ref=e68]
+          - generic [ref=e72]: 处理完成后自动下载结果
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - heading "简单直接" [level=3] [ref=e77]
+          - paragraph [ref=e78]: 上传文件，选择操作，结果自动下载。每个工具只保留真正需要的设置。
+        - generic [ref=e79]:
+          - heading "文件保护" [level=3] [ref=e84]
+          - paragraph [ref=e85]: 首批核心工具在浏览器中处理文件，避免不必要的上传和长期存储。
+        - generic [ref=e86]:
+          - heading "随处可用" [level=3] [ref=e89]
+          - paragraph [ref=e90]: 在桌面、平板和手机浏览器中都能使用同一套工具。
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - heading "更多 PDF 工具" [level=2] [ref=e94]
+            - paragraph [ref=e95]: 换一个工具继续处理当前任务。
+          - link "浏览全部" [ref=e96] [cursor=pointer]:
+            - /url: /all-tools
+        - generic [ref=e99]:
+          - link [ref=e100] [cursor=pointer]:
+            - /url: /merge-pdf
+            - generic [ref=e101]: ☆
+            - heading "合并 PDF" [level=3] [ref=e106]
+            - paragraph [ref=e107]: 把多个 PDF 合并成一个有序文档。
+          - link [ref=e108] [cursor=pointer]:
+            - /url: /split-pdf
+            - generic [ref=e109]: ☆
+            - heading "拆分 PDF" [level=3] [ref=e114]
+            - paragraph [ref=e115]: 按页码或范围拆分 PDF 文件。
+          - link [ref=e116] [cursor=pointer]:
+            - /url: /edit-pdf
+            - generic [ref=e117]: ☆
+            - heading "编辑 PDF" [level=3] [ref=e122]
+            - paragraph [ref=e123]: 在 PDF 页面上自由涂鸦并下载编辑后的文件。
+          - link [ref=e124] [cursor=pointer]:
+            - /url: /sign-pdf
+            - generic [ref=e125]: ☆
+            - heading "签署 PDF" [level=3] [ref=e130]
+            - paragraph [ref=e131]: 在 PDF 中添加电子签名。
+    - contentinfo [ref=e132]:
+      - link "关于 PaperPilot" [ref=e133] [cursor=pointer]:
+        - /url: /about
+      - link "常见问题" [ref=e134] [cursor=pointer]:
+        - /url: /faq
+      - link "联系" [ref=e135] [cursor=pointer]:
+        - /url: /contact
+      - link "隐私政策" [ref=e136] [cursor=pointer]:
+        - /url: /privacy
+      - link "使用条款" [ref=e137] [cursor=pointer]:
+        - /url: /terms
+      - generic [ref=e138]: 文件默认在浏览器本地处理
+      - generic [ref=e142]: © 2026 PaperPilot
+  - button "Open Next.js Dev Tools" [ref=e148] [cursor=pointer]
+  - alert [ref=e152]

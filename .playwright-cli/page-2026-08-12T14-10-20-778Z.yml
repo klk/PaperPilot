@@ -1,0 +1,121 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "PaperPilot 首页" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - text: PaperPilot
+      - navigation "主导航" [ref=e6]:
+        - link "所有工具" [ref=e7] [cursor=pointer]:
+          - /url: /all-tools
+        - link "安全与隐私" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "管理后台" [ref=e9] [cursor=pointer]:
+          - /url: /admin
+      - generic [ref=e10]:
+        - button "下载桌面应用" [ref=e11] [cursor=pointer]
+        - button "切换主题" [ref=e16] [cursor=pointer]
+        - button "打开菜单" [ref=e19] [cursor=pointer]
+    - main [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]: PDF to Word
+        - heading "PDF 转 Word" [level=1] [ref=e27]
+        - paragraph [ref=e28]: 将 PDF 转换为 Word 文件。
+        - generic [ref=e29]:
+          - generic [ref=e30]: 免费开始
+          - generic [ref=e33]: 在线使用
+          - generic [ref=e36]: 无需安装
+          - generic [ref=e39]: 隐私优先
+      - region "PDF to Word workspace" [ref=e44]:
+        - generic [ref=e45]: 文件保护已激活，默认在此浏览器中处理
+        - generic [ref=e49]:
+          - button "选择文件" [active] [ref=e53] [cursor=pointer]
+          - generic [ref=e57]: 或将文件拖放到这里 · 支持单个或多个文件
+        - generic [ref=e151]:
+          - generic [ref=e155]:
+            - generic [ref=e156]: 2.pdf
+            - generic [ref=e157]: 390 KB
+          - generic [ref=e158]:
+            - button "上移" [ref=e159] [cursor=pointer]
+            - button "下移" [ref=e162] [cursor=pointer]
+            - button "移除" [ref=e165] [cursor=pointer]
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - text: 格式
+            - combobox "转换格式" [ref=e60]:
+              - option "Text (.txt)"
+              - option "Rich Text (.rtf)"
+              - option "HTML (.html)"
+              - option "Word (.docx)" [selected]
+              - option "PowerPoint (.pptx)"
+              - option "Excel (.xlsx)"
+              - option "Writer (.odt)"
+              - option "Impress (.odp)"
+              - option "Calc (.ods)"
+              - option "PNG (.png)"
+              - option "JPG (.jpg)"
+              - option "SVG (.svg)"
+              - option "PDF/A (.pdf)"
+              - option "EPUB (.epub)"
+          - generic [ref=e61]:
+            - text: 模式
+            - combobox "转换模式" [ref=e62]:
+              - option "Blocks" [selected]
+              - option "Flow"
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - button "开始处理" [ref=e65] [cursor=pointer]
+            - generic [ref=e69]: 处理完成后自动下载结果
+          - button "清空" [ref=e176] [cursor=pointer]
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - heading "简单直接" [level=3] [ref=e74]
+          - paragraph [ref=e75]: 上传文件，选择操作，结果自动下载。每个工具只保留真正需要的设置。
+        - generic [ref=e76]:
+          - heading "文件保护" [level=3] [ref=e81]
+          - paragraph [ref=e82]: 首批核心工具在浏览器中处理文件，避免不必要的上传和长期存储。
+        - generic [ref=e83]:
+          - heading "随处可用" [level=3] [ref=e86]
+          - paragraph [ref=e87]: 在桌面、平板和手机浏览器中都能使用同一套工具。
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - heading "更多 PDF 工具" [level=2] [ref=e91]
+            - paragraph [ref=e92]: 换一个工具继续处理当前任务。
+          - link "浏览全部" [ref=e93] [cursor=pointer]:
+            - /url: /all-tools
+        - generic [ref=e96]:
+          - link [ref=e97] [cursor=pointer]:
+            - /url: /merge-pdf
+            - generic [ref=e98]: ☆
+            - heading "合并 PDF" [level=3] [ref=e103]
+            - paragraph [ref=e104]: 把多个 PDF 合并成一个有序文档。
+          - link [ref=e105] [cursor=pointer]:
+            - /url: /split-pdf
+            - generic [ref=e106]: ☆
+            - heading "拆分 PDF" [level=3] [ref=e111]
+            - paragraph [ref=e112]: 按页码或范围拆分 PDF 文件。
+          - link [ref=e113] [cursor=pointer]:
+            - /url: /compress-pdf
+            - generic [ref=e114]: ☆
+            - heading "压缩 PDF" [level=3] [ref=e119]
+            - paragraph [ref=e120]: 减少 PDF 文件体积，便于分享和上传。
+          - link [ref=e121] [cursor=pointer]:
+            - /url: /edit-pdf
+            - generic [ref=e122]: ☆
+            - heading "编辑 PDF" [level=3] [ref=e127]
+            - paragraph [ref=e128]: 在 PDF 页面上自由涂鸦并下载编辑后的文件。
+    - contentinfo [ref=e129]:
+      - link "关于 PaperPilot" [ref=e130] [cursor=pointer]:
+        - /url: /about
+      - link "常见问题" [ref=e131] [cursor=pointer]:
+        - /url: /faq
+      - link "联系" [ref=e132] [cursor=pointer]:
+        - /url: /contact
+      - link "隐私政策" [ref=e133] [cursor=pointer]:
+        - /url: /privacy
+      - link "使用条款" [ref=e134] [cursor=pointer]:
+        - /url: /terms
+      - generic [ref=e135]: 文件默认在浏览器本地处理
+      - generic [ref=e139]: © 2026 PaperPilot
+  - button "Open Next.js Dev Tools" [ref=e145] [cursor=pointer]
+  - alert [ref=e149]

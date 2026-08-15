@@ -1,0 +1,29 @@
+{
+  "generate-qr-code": {
+    "published": false
+  },
+  "ocr-pdf": {
+    "published": false
+  },
+  "pdf-printer": {
+    "published": false
+  },
+  "pdf-reader": {
+    "published": false
+  },
+  "compare-pdf": {
+    "published": false
+  },
+  "bookmark-pdf": {
+    "published": false
+  },
+  "scan-pdf": {
+    "published": false
+  },
+  "create-pdf": {
+    "published": false
+  },
+  "flatten-pdf": {
+    "published": false
+  }
+}
