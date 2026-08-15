@@ -82,4 +82,7 @@ export function SiteChrome({ children, locale }: { children: React.ReactNode; lo
   </div>;
 }
 
-export function ToolIcon() { return <span className="tool-icon" aria-hidden="true"><Sparkles size={17} /></span>; }
+export function ToolIcon({ slug }: { slug?: string }) {
+  if (slug === "merge-pdf") return <span className="tool-icon tool-icon-merge" aria-hidden="true"><img src="/tool-icons/merge-pdf.svg" alt="" /></span>;
+  return <span className="tool-icon" aria-hidden="true"><Sparkles size={17} /></span>;
+}

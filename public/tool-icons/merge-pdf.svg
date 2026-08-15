@@ -1,0 +1,15 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Merge PDF</title>
+  <rect x="18" y="18" width="220" height="220" rx="48" fill="#E7F3FF"/>
+  <path d="M62 69C62 60.716 68.716 54 77 54H133L161 82V167C161 175.284 154.284 182 146 182H77C68.716 182 62 175.284 62 167V69Z" fill="#FFFFFF" stroke="#0879DC" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M133 54V82H161" fill="#BFE5FF"/>
+  <path d="M133 54V82H161" stroke="#0879DC" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M92 109H132M92 133H121M92 157H114" stroke="#8DBFE7" stroke-width="9" stroke-linecap="round"/>
+  <path d="M116 91C116 82.716 122.716 76 131 76H178L202 100V174C202 182.284 195.284 189 187 189H131C122.716 189 116 182.284 116 174V91Z" fill="#FFFFFF" stroke="#0759B8" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M178 76V100H202" fill="#81CEF7"/>
+  <path d="M178 76V100H202" stroke="#0759B8" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M143 137L185 112L171 153L159 139L143 137Z" fill="#0879DC" stroke="#0759B8" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M159 139L171 153" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M52 192C66 216 94 222 116 211" stroke="#FF8611" stroke-width="10" stroke-linecap="round"/>
+  <path d="M109 197L119 211L102 214" fill="#FF8611"/>
+</svg>

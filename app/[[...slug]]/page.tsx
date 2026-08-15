@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 function ToolCard({ item, locale }: { item: Tool; locale: Locale }) {
   return <Link className="tool-card" href={`/${item.slug}`}>
-    <div className="tool-card-top"><ToolIcon /><span className="favorite" aria-hidden="true">☆</span></div>
+    <div className="tool-card-top"><ToolIcon slug={item.slug} /><span className="favorite" aria-hidden="true">☆</span></div>
     <h3>{locale === "zh" ? item.label : item.enLabel}</h3><p>{getToolDescription(locale, item.slug, item.description)}</p>
   </Link>;
 }
