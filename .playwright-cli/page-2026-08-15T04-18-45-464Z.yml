@@ -1,0 +1,436 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "PaperPilot 首页" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - text: PaperPilot
+      - navigation "主导航" [ref=e6]:
+        - link "所有 PDF 工具" [ref=e7] [cursor=pointer]:
+          - /url: /all-tools
+        - link "关于" [ref=e8] [cursor=pointer]:
+          - /url: /about
+      - generic [ref=e9]:
+        - button "中文" [ref=e11] [cursor=pointer]
+        - button "切换至深色模式" [ref=e12] [cursor=pointer]
+        - button "打开菜单" [ref=e15] [cursor=pointer]
+    - main [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]: 所有 PDF 工具
+        - heading "所有工具" [level=1] [ref=e26]
+        - paragraph [ref=e27]: 按任务查找工具，不用记住复杂的菜单结构。
+      - generic [ref=e28]:
+        - link [ref=e29] [cursor=pointer]:
+          - /url: /merge-pdf
+          - generic [ref=e30]: ☆
+          - heading "合并 PDF" [level=3] [ref=e33]
+          - paragraph [ref=e34]: 把多个 PDF 合并成一个有序文档。
+        - link [ref=e35] [cursor=pointer]:
+          - /url: /split-pdf
+          - generic [ref=e36]: ☆
+          - heading "拆分 PDF" [level=3] [ref=e45]
+          - paragraph [ref=e46]: 按页码或范围拆分 PDF 文件。
+        - link [ref=e47] [cursor=pointer]:
+          - /url: /compress-pdf
+          - generic [ref=e48]: ☆
+          - heading "压缩 PDF" [level=3] [ref=e56]
+          - paragraph [ref=e57]: 减少 PDF 文件体积，便于分享和上传。
+        - link [ref=e58] [cursor=pointer]:
+          - /url: /edit-pdf
+          - generic [ref=e59]: ☆
+          - heading "编辑 PDF" [level=3] [ref=e65]
+          - paragraph [ref=e66]: 在 PDF 页面上自由涂鸦并下载编辑后的文件。
+        - link [ref=e67] [cursor=pointer]:
+          - /url: /sign-pdf
+          - generic [ref=e68]: ☆
+          - heading "签署 PDF" [level=3] [ref=e74]
+          - paragraph [ref=e75]: 在 PDF 中添加电子签名。
+        - link [ref=e76] [cursor=pointer]:
+          - /url: /pdf-converter
+          - generic [ref=e77]: ☆
+          - heading "PDF 转换器" [level=3] [ref=e83]
+          - paragraph [ref=e84]: 在 PDF 与常见文件格式之间转换。
+        - link [ref=e85] [cursor=pointer]:
+          - /url: /images-to-pdf
+          - generic [ref=e86]: ☆
+          - heading "图片转 PDF" [level=3] [ref=e94]
+          - paragraph [ref=e95]: 把 JPG、PNG 等图片整理为 PDF。
+        - link [ref=e96] [cursor=pointer]:
+          - /url: /pdf-to-images
+          - generic [ref=e97]: ☆
+          - heading "PDF 转图片" [level=3] [ref=e105]
+          - paragraph [ref=e106]: 将 PDF 页面导出为图片。
+        - link [ref=e107] [cursor=pointer]:
+          - /url: /extract-images
+          - generic [ref=e108]: ☆
+          - heading "提取 PDF 图片" [level=3] [ref=e115]
+          - paragraph [ref=e116]: 提取 PDF 内嵌的图片资源。
+        - link [ref=e117] [cursor=pointer]:
+          - /url: /lock-pdf
+          - generic [ref=e118]: ☆
+          - heading "保护 PDF" [level=3] [ref=e126]
+          - paragraph [ref=e127]: 使用密码保护 PDF 文件。
+        - link [ref=e128] [cursor=pointer]:
+          - /url: /unlock-pdf
+          - generic [ref=e129]: ☆
+          - heading "解除 PDF 保护" [level=3] [ref=e138]
+          - paragraph [ref=e139]: 移除你有权访问的 PDF 密码保护。
+        - link [ref=e140] [cursor=pointer]:
+          - /url: /rotate-pdf-pages
+          - generic [ref=e141]: ☆
+          - heading "旋转 PDF 页面" [level=3] [ref=e147]
+          - paragraph [ref=e148]: 批量旋转 PDF 页面方向。
+        - link [ref=e149] [cursor=pointer]:
+          - /url: /remove-pdf-pages
+          - generic [ref=e150]: ☆
+          - heading "删除 PDF 页面" [level=3] [ref=e156]
+          - paragraph [ref=e157]: 删除不需要的 PDF 页面。
+        - link [ref=e158] [cursor=pointer]:
+          - /url: /extract-pdf-pages
+          - generic [ref=e159]: ☆
+          - heading "提取 PDF 页面" [level=3] [ref=e168]
+          - paragraph [ref=e169]: 从 PDF 中提取选定页面。
+        - link [ref=e170] [cursor=pointer]:
+          - /url: /rearrange-pdf-pages
+          - generic [ref=e171]: ☆
+          - heading "重排 PDF 页面" [level=3] [ref=e179]
+          - paragraph [ref=e180]: 按新的顺序整理 PDF 页面。
+        - link [ref=e181] [cursor=pointer]:
+          - /url: /webpage-to-pdf
+          - generic [ref=e182]: ☆
+          - heading "网页转 PDF" [level=3] [ref=e190]
+          - paragraph [ref=e191]: 将公开网页保存为 PDF。
+        - link [ref=e192] [cursor=pointer]:
+          - /url: /add-watermark
+          - generic [ref=e193]: ☆
+          - heading "添加水印" [level=3] [ref=e199]
+          - paragraph [ref=e200]: 在 PDF 页面添加文字水印。
+        - link [ref=e201] [cursor=pointer]:
+          - /url: /add-page-numbers
+          - generic [ref=e202]: ☆
+          - heading "添加页码" [level=3] [ref=e208]
+          - paragraph [ref=e209]: 为 PDF 页面添加页码。
+        - link [ref=e210] [cursor=pointer]:
+          - /url: /overlay-pdf
+          - generic [ref=e211]: ☆
+          - heading "PDF 叠加" [level=3] [ref=e218]
+          - paragraph [ref=e219]: 将一个 PDF 页面叠加到另一个 PDF 上。
+        - link [ref=e220] [cursor=pointer]:
+          - /url: /optimize-pdf
+          - generic [ref=e221]: ☆
+          - heading "优化 PDF" [level=3] [ref=e227]
+          - paragraph [ref=e228]: 整理 PDF 结构以提升网页加载速度。
+        - link [ref=e229] [cursor=pointer]:
+          - /url: /redact-pdf
+          - generic [ref=e230]: ☆
+          - heading "密文标记" [level=3] [ref=e238]
+          - paragraph [ref=e239]: 遮盖 PDF 中的敏感信息。
+        - link [ref=e240] [cursor=pointer]:
+          - /url: /convert-to-pdf
+          - generic [ref=e241]: ☆
+          - heading "转换为 PDF" [level=3] [ref=e248]
+          - paragraph [ref=e249]: 把 Word、Excel、PowerPoint、图像和其他文件转换为 PDF。
+        - link [ref=e250] [cursor=pointer]:
+          - /url: /convert-from-pdf
+          - generic [ref=e251]: ☆
+          - heading "将 PDF 转换成…" [level=3] [ref=e258]
+          - paragraph [ref=e259]: 将 PDF 转换为文本、HTML、Office、图像和其他格式。
+        - link [ref=e260] [cursor=pointer]:
+          - /url: /remove-pdf-metadata
+          - generic [ref=e261]: ☆
+          - heading "移除 PDF 元数据" [level=3] [ref=e268]
+          - paragraph [ref=e269]: 删除作者、标题等文档元数据。
+        - link [ref=e270] [cursor=pointer]:
+          - /url: /change-pdf-doc-info
+          - generic [ref=e271]: ☆
+          - heading "修改文档信息" [level=3] [ref=e286]
+          - paragraph [ref=e287]: 修改标题、作者、主题和关键词。
+        - link [ref=e288] [cursor=pointer]:
+          - /url: /annotate-pdf
+          - generic [ref=e289]: ☆
+          - heading "注释 PDF" [level=3] [ref=e295]
+          - paragraph [ref=e296]: 为 PDF 增加文字和视觉注释。
+        - link [ref=e297] [cursor=pointer]:
+          - /url: /pages-per-sheet
+          - generic [ref=e298]: ☆
+          - heading "每页页面数" [level=3] [ref=e303]
+          - paragraph [ref=e304]: 把多页缩印到一张纸上。
+        - link [ref=e305] [cursor=pointer]:
+          - /url: /change-pdf-page-size
+          - generic [ref=e306]: ☆
+          - heading "更改页面大小" [level=3] [ref=e314]
+          - paragraph [ref=e315]: 统一或更改 PDF 页面尺寸。
+        - link [ref=e316] [cursor=pointer]:
+          - /url: /halve-pdf-pages
+          - generic [ref=e317]: ☆
+          - heading "页面裁切为两半" [level=3] [ref=e323]
+          - paragraph [ref=e324]: 把扫描的对开页面裁切为两页。
+        - link [ref=e325] [cursor=pointer]:
+          - /url: /crop-pdf
+          - generic [ref=e326]: ☆
+          - heading "裁剪 PDF" [level=3] [ref=e332]
+          - paragraph [ref=e333]: 裁去页面边缘的空白区域。
+        - link [ref=e334] [cursor=pointer]:
+          - /url: /repair-pdf
+          - generic [ref=e335]: ☆
+          - heading "修复 PDF" [level=3] [ref=e340]
+          - paragraph [ref=e341]: 尝试重建损坏 PDF 的可读结构。
+        - link [ref=e342] [cursor=pointer]:
+          - /url: /create-job-application
+          - generic [ref=e343]: ☆
+          - heading "求职申请书" [level=3] [ref=e351]
+          - paragraph [ref=e352]: 生成结构清晰的 PDF 求职申请书。
+        - link [ref=e353] [cursor=pointer]:
+          - /url: /view-pdf
+          - generic [ref=e354]: ☆
+          - heading "查看 PDF" [level=3] [ref=e360]
+          - paragraph [ref=e361]: 在浏览器中快速查看 PDF。
+        - link [ref=e362] [cursor=pointer]:
+          - /url: /set-pdf-viewer-preferences
+          - generic [ref=e363]: ☆
+          - heading "查看器偏好" [level=3] [ref=e367]
+          - paragraph [ref=e368]: 设置 PDF 打开时的查看偏好。
+        - link [ref=e369] [cursor=pointer]:
+          - /url: /create-invoice
+          - generic [ref=e370]: ☆
+          - heading "创建账单" [level=3] [ref=e375]
+          - paragraph [ref=e376]: 创建简单的 PDF 发票。
+        - link [ref=e377] [cursor=pointer]:
+          - /url: /create-invoice-visually
+          - generic [ref=e378]: ☆
+          - heading "可视化创建账单" [level=3] [ref=e384]
+          - paragraph [ref=e385]: 通过表单创建好看的 PDF 账单。
+        - link [ref=e386] [cursor=pointer]:
+          - /url: /create-electronic-invoice
+          - generic [ref=e387]: ☆
+          - heading "创建电子账单" [level=3] [ref=e393]
+          - paragraph [ref=e394]: 创建适用于企业流程的电子发票。
+        - link [ref=e395] [cursor=pointer]:
+          - /url: /generate-password
+          - generic [ref=e396]: ☆
+          - heading "生成密码" [level=3] [ref=e402]
+          - paragraph [ref=e403]: 生成安全的随机密码。
+        - link [ref=e404] [cursor=pointer]:
+          - /url: /fill-out-pdf
+          - generic [ref=e405]: ☆
+          - heading "填写 PDF" [level=3] [ref=e412]
+          - paragraph [ref=e413]: 填写已有的 PDF 表单。
+        - link [ref=e414] [cursor=pointer]:
+          - /url: /create-fillable-pdf-form
+          - generic [ref=e415]: ☆
+          - heading "创建可填写表单" [level=3] [ref=e422]
+          - paragraph [ref=e423]: 创建可填写的 PDF 表单。
+        - link [ref=e424] [cursor=pointer]:
+          - /url: /word-to-pdf
+          - generic [ref=e425]: ☆
+          - heading "Word 转 PDF" [level=3] [ref=e432]
+          - paragraph [ref=e433]: 将 Word 文件转换为 PDF。
+        - link [ref=e434] [cursor=pointer]:
+          - /url: /powerpoint-to-pdf
+          - generic [ref=e435]: ☆
+          - heading "PowerPoint 转 PDF" [level=3] [ref=e440]
+          - paragraph [ref=e441]: 将 PowerPoint 文件转换为 PDF。
+        - link [ref=e442] [cursor=pointer]:
+          - /url: /excel-to-pdf
+          - generic [ref=e443]: ☆
+          - heading "Excel 转 PDF" [level=3] [ref=e449]
+          - paragraph [ref=e450]: 将 Excel 文件转换为 PDF。
+        - link [ref=e451] [cursor=pointer]:
+          - /url: /jpg-to-pdf
+          - generic [ref=e452]: ☆
+          - heading "JPG 转 PDF" [level=3] [ref=e460]
+          - paragraph [ref=e461]: 将 JPG 文件转换为 PDF。
+        - link [ref=e462] [cursor=pointer]:
+          - /url: /png-to-pdf
+          - generic [ref=e463]: ☆
+          - heading "PNG 转 PDF" [level=3] [ref=e471]
+          - paragraph [ref=e472]: 将 PNG 文件转换为 PDF。
+        - link [ref=e473] [cursor=pointer]:
+          - /url: /webp-to-pdf
+          - generic [ref=e474]: ☆
+          - heading "WEBP 转 PDF" [level=3] [ref=e482]
+          - paragraph [ref=e483]: 将 WEBP 文件转换为 PDF。
+        - link [ref=e484] [cursor=pointer]:
+          - /url: /heic-to-pdf
+          - generic [ref=e485]: ☆
+          - heading "HEIC 转 PDF" [level=3] [ref=e493]
+          - paragraph [ref=e494]: 将 HEIC 文件转换为 PDF。
+        - link [ref=e495] [cursor=pointer]:
+          - /url: /svg-to-pdf
+          - generic [ref=e496]: ☆
+          - heading "SVG 转 PDF" [level=3] [ref=e502]
+          - paragraph [ref=e503]: 将 SVG 文件转换为 PDF。
+        - link [ref=e504] [cursor=pointer]:
+          - /url: /tiff-to-pdf
+          - generic [ref=e505]: ☆
+          - heading "TIFF 转 PDF" [level=3] [ref=e513]
+          - paragraph [ref=e514]: 将 TIFF 文件转换为 PDF。
+        - link [ref=e515] [cursor=pointer]:
+          - /url: /docx-to-pdf
+          - generic [ref=e516]: ☆
+          - heading "DOCX 转 PDF" [level=3] [ref=e523]
+          - paragraph [ref=e524]: 将 DOCX 文件转换为 PDF。
+        - link [ref=e525] [cursor=pointer]:
+          - /url: /pptx-to-pdf
+          - generic [ref=e526]: ☆
+          - heading "PPTX 转 PDF" [level=3] [ref=e531]
+          - paragraph [ref=e532]: 将 PPTX 文件转换为 PDF。
+        - link [ref=e533] [cursor=pointer]:
+          - /url: /xlsx-to-pdf
+          - generic [ref=e534]: ☆
+          - heading "XLSX 转 PDF" [level=3] [ref=e540]
+          - paragraph [ref=e541]: 将 XLSX 文件转换为 PDF。
+        - link [ref=e542] [cursor=pointer]:
+          - /url: /doc-to-pdf
+          - generic [ref=e543]: ☆
+          - heading "DOC 转 PDF" [level=3] [ref=e550]
+          - paragraph [ref=e551]: 将 DOC 文件转换为 PDF。
+        - link [ref=e552] [cursor=pointer]:
+          - /url: /ppt-to-pdf
+          - generic [ref=e553]: ☆
+          - heading "PPT 转 PDF" [level=3] [ref=e558]
+          - paragraph [ref=e559]: 将 PPT 文件转换为 PDF。
+        - link [ref=e560] [cursor=pointer]:
+          - /url: /xls-to-pdf
+          - generic [ref=e561]: ☆
+          - heading "XLS 转 PDF" [level=3] [ref=e567]
+          - paragraph [ref=e568]: 将 XLS 文件转换为 PDF。
+        - link [ref=e569] [cursor=pointer]:
+          - /url: /odt-to-pdf
+          - generic [ref=e570]: ☆
+          - heading "ODT 转 PDF" [level=3] [ref=e576]
+          - paragraph [ref=e577]: 将 ODT 文件转换为 PDF。
+        - link [ref=e578] [cursor=pointer]:
+          - /url: /odg-to-pdf
+          - generic [ref=e579]: ☆
+          - heading "ODG 转 PDF" [level=3] [ref=e585]
+          - paragraph [ref=e586]: 将 ODG 文件转换为 PDF。
+        - link [ref=e587] [cursor=pointer]:
+          - /url: /ods-to-pdf
+          - generic [ref=e588]: ☆
+          - heading "ODS 转 PDF" [level=3] [ref=e594]
+          - paragraph [ref=e595]: 将 ODS 文件转换为 PDF。
+        - link [ref=e596] [cursor=pointer]:
+          - /url: /odp-to-pdf
+          - generic [ref=e597]: ☆
+          - heading "ODP 转 PDF" [level=3] [ref=e603]
+          - paragraph [ref=e604]: 将 ODP 文件转换为 PDF。
+        - link [ref=e605] [cursor=pointer]:
+          - /url: /txt-to-pdf
+          - generic [ref=e606]: ☆
+          - heading "文本 转 PDF" [level=3] [ref=e612]
+          - paragraph [ref=e613]: 将 文本 文件转换为 PDF。
+        - link [ref=e614] [cursor=pointer]:
+          - /url: /rtf-to-pdf
+          - generic [ref=e615]: ☆
+          - heading "RTF 转 PDF" [level=3] [ref=e621]
+          - paragraph [ref=e622]: 将 RTF 文件转换为 PDF。
+        - link [ref=e623] [cursor=pointer]:
+          - /url: /epub-to-pdf
+          - generic [ref=e624]: ☆
+          - heading "EPUB 转 PDF" [level=3] [ref=e630]
+          - paragraph [ref=e631]: 将 EPUB 文件转换为 PDF。
+        - link [ref=e632] [cursor=pointer]:
+          - /url: /markdown-to-pdf
+          - generic [ref=e633]: ☆
+          - heading "Markdown 转 PDF" [level=3] [ref=e641]
+          - paragraph [ref=e642]: 将 Markdown 文件转换为 PDF。
+        - link [ref=e643] [cursor=pointer]:
+          - /url: /pdf-to-word
+          - generic [ref=e644]: ☆
+          - heading "PDF 转 Word" [level=3] [ref=e651]
+          - paragraph [ref=e652]: 将 PDF 转换为 Word 文件。
+        - link [ref=e653] [cursor=pointer]:
+          - /url: /pdf-to-powerpoint
+          - generic [ref=e654]: ☆
+          - heading "PDF 转 PowerPoint" [level=3] [ref=e659]
+          - paragraph [ref=e660]: 将 PDF 转换为 PowerPoint 文件。
+        - link [ref=e661] [cursor=pointer]:
+          - /url: /pdf-to-excel
+          - generic [ref=e662]: ☆
+          - heading "PDF 转 Excel" [level=3] [ref=e668]
+          - paragraph [ref=e669]: 将 PDF 转换为 Excel 文件。
+        - link [ref=e670] [cursor=pointer]:
+          - /url: /pdf-to-jpg
+          - generic [ref=e671]: ☆
+          - heading "PDF 转 JPG" [level=3] [ref=e679]
+          - paragraph [ref=e680]: 将 PDF 转换为 JPG 文件。
+        - link [ref=e681] [cursor=pointer]:
+          - /url: /pdf-to-png
+          - generic [ref=e682]: ☆
+          - heading "PDF 转 PNG" [level=3] [ref=e690]
+          - paragraph [ref=e691]: 将 PDF 转换为 PNG 文件。
+        - link [ref=e692] [cursor=pointer]:
+          - /url: /pdf-to-docx
+          - generic [ref=e693]: ☆
+          - heading "PDF 转 DOCX" [level=3] [ref=e700]
+          - paragraph [ref=e701]: 将 PDF 转换为 DOCX 文件。
+        - link [ref=e702] [cursor=pointer]:
+          - /url: /pdf-to-pptx
+          - generic [ref=e703]: ☆
+          - heading "PDF 转 PPTX" [level=3] [ref=e708]
+          - paragraph [ref=e709]: 将 PDF 转换为 PPTX 文件。
+        - link [ref=e710] [cursor=pointer]:
+          - /url: /pdf-to-xlsx
+          - generic [ref=e711]: ☆
+          - heading "PDF 转 XLSX" [level=3] [ref=e717]
+          - paragraph [ref=e718]: 将 PDF 转换为 XLSX 文件。
+        - link [ref=e719] [cursor=pointer]:
+          - /url: /pdf-to-txt
+          - generic [ref=e720]: ☆
+          - heading "PDF 转 文本" [level=3] [ref=e726]
+          - paragraph [ref=e727]: 将 PDF 转换为 文本 文件。
+        - link [ref=e728] [cursor=pointer]:
+          - /url: /pdf-to-rtf
+          - generic [ref=e729]: ☆
+          - heading "PDF 转 RTF" [level=3] [ref=e735]
+          - paragraph [ref=e736]: 将 PDF 转换为 RTF 文件。
+        - link [ref=e737] [cursor=pointer]:
+          - /url: /pdf-to-epub
+          - generic [ref=e738]: ☆
+          - heading "PDF 转 EPUB" [level=3] [ref=e744]
+          - paragraph [ref=e745]: 将 PDF 转换为 EPUB 文件。
+        - link [ref=e746] [cursor=pointer]:
+          - /url: /pdf-to-html
+          - generic [ref=e747]: ☆
+          - heading "PDF 转 HTML" [level=3] [ref=e755]
+          - paragraph [ref=e756]: 将 PDF 转换为 HTML 文件。
+        - link [ref=e757] [cursor=pointer]:
+          - /url: /pdf-to-secure-pdf
+          - generic [ref=e758]: ☆
+          - heading "PDF 转安全 PDF" [level=3] [ref=e764]
+          - paragraph [ref=e765]: 生成适合安全分享的 PDF。
+        - link [ref=e766] [cursor=pointer]:
+          - /url: /heic-to-jpg
+          - generic [ref=e767]: ☆
+          - heading "HEIC 转 JPG" [level=3] [ref=e775]
+          - paragraph [ref=e776]: 将 HEIC 图片转换成 JPG。
+        - link [ref=e777] [cursor=pointer]:
+          - /url: /heic-to-png
+          - generic [ref=e778]: ☆
+          - heading "HEIC 转 PNG" [level=3] [ref=e786]
+          - paragraph [ref=e787]: 将 HEIC 图片转换成 PNG。
+        - link [ref=e788] [cursor=pointer]:
+          - /url: /webp-to-jpg
+          - generic [ref=e789]: ☆
+          - heading "WEBP 转 JPG" [level=3] [ref=e797]
+          - paragraph [ref=e798]: 将 WEBP 图片转换成 JPG。
+        - link [ref=e799] [cursor=pointer]:
+          - /url: /webp-to-png
+          - generic [ref=e800]: ☆
+          - heading "WEBP 转 PNG" [level=3] [ref=e808]
+          - paragraph [ref=e809]: 将 WEBP 图片转换成 PNG。
+    - contentinfo [ref=e810]:
+      - link "关于 PaperPilot" [ref=e811] [cursor=pointer]:
+        - /url: /about
+      - link "常见问题" [ref=e812] [cursor=pointer]:
+        - /url: /faq
+      - link "联系我们" [ref=e813] [cursor=pointer]:
+        - /url: /contact
+      - link "安全与隐私" [ref=e814] [cursor=pointer]:
+        - /url: /privacy
+      - link "使用条款" [ref=e815] [cursor=pointer]:
+        - /url: /terms
+      - generic [ref=e816]: 文件默认在浏览器本地处理
+      - generic [ref=e820]: © 2026 PaperPilot
+  - button "Open Next.js Dev Tools" [ref=e826] [cursor=pointer]
+  - alert [ref=e830]

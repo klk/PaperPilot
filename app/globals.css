@@ -41,9 +41,16 @@ button { cursor:pointer; }
 .tool-card { min-height:146px; padding:20px; background:var(--surface); border:1px solid var(--line); border-radius:7px; display:flex; flex-direction:column; box-shadow:0 6px 25px rgba(19,72,124,.045); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .tool-card:hover { transform:translateY(-3px); border-color:#8fc4f1; box-shadow:var(--shadow); }
 .tool-card-top { display:flex; justify-content:space-between; align-items:start; margin-bottom:14px; }
-.tool-icon { width:35px; height:35px; border-radius:7px; display:grid; place-items:center; background:#e7f3ff; color:var(--blue-deep); }
+.tool-icon { width:35px; height:35px; border-radius:7px; display:grid; place-items:center; flex:none; background:#e7f3ff; color:var(--blue-deep); }
 .tool-icon-merge { padding:0; overflow:hidden; background:transparent; }
-.tool-icon-merge img { display:block; width:100%; height:100%; object-fit:contain; }
+.merge-pdf-glyph { display:block; max-width:100%; max-height:100%; }
+.tool-icon-blue { background:#e7f3ff; color:#0759b8; }
+.tool-icon-teal { background:#e7f8f5; color:#087f9f; }
+.tool-icon-orange { background:#fff2e3; color:#d96a00; }
+.tool-icon-violet { background:#f0ecff; color:#6b4cc7; }
+.tool-icon-green { background:#e8f7ee; color:#18794e; }
+.tool-icon-rose { background:#ffedf0; color:#bf3150; }
+.tool-icon-compact { width:22px; height:22px; border-radius:5px; }
 .tool-card h3 { font-size:16px; margin:0 0 7px; font-weight:700; }
 .tool-card p { color:var(--muted); font-size:13px; line-height:1.5; margin:0; }
 .favorite { color:#b5bfd0; border:0; background:transparent; padding:3px; }
